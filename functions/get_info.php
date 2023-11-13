@@ -8,9 +8,10 @@ function get_youtube_info($video_id, $api_key){
 
     $title = $details['items'][0]['snippet']['title'];
     $channel_title = $details['items'][0]['snippet']['channelTitle'];
-    $duration = $details['items'][0]['contentDetails']['duration']; // get video duration
+    $duration = $details['items'][0]['contentDetails']['duration'];
+    $thumbnails = $details['items'][0]['snippet']['thumbnails']['default']['url'];
 
-    return array('title' => $title, 'channel' => $channel_title, 'duration' => $duration);
+    return array('title' => $title, 'channel' => $channel_title, 'duration' => $duration, 'thumbnails' => $thumbnails);
 }
 $info = get_youtube_info($video_id, $api_key);
 var_dump($info);
